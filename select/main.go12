@@ -1,0 +1,26 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	ch := make(chan int)
+	go func() {
+		select {
+		case ch <- getVal(1):
+			fmt.Println("in first case")
+		case ch <- getVal(2):
+			fmt.Println("in second case")
+		default:
+			fmt.Println("default")
+		}
+	}()
+
+	fmt.Println("The val:", <-ch)
+}
+
+func getVal(i int) int {
+	fmt.Println("getVal, i=", i)
+	return i
+}

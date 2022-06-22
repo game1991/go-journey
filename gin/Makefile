@@ -1,0 +1,41 @@
+SHELL:=/bin/bash
+
+.PHONY: build clean run
+
+
+SERVICE_LIST:=ac172f739b3542248e862488b5956046,4109a3bd03394763a92865eddcbb6083,8880 5a09f25d4dff4ddf856ca2316da39b81,e0d1be4248a14f14b5dd7cf05a1e0045,8881 0742e54e93f5480185a8f5897c379a8c,a026dd49284e48e3bf9226e696020e0c,8882 c49c303bf6d84c08bc2473d6ed3fc0d4,066f32c5e87e482aa43f7e314c20fd52,8883 721f158dd0d443efb64cfc631ca6983f,be8a43be5bb4466a9d0573c63606524b,8884
+
+#@$(foreach var,$(SERVICE_LIST),echo $(var))
+
+LIST:=$(shell awk -F, 'NR >1{printf "%s %s %s\n",$$1,$$2,$$NF}' ./data/data.csv)
+
+APPNAME:=$(if $(APPNAME),$(APPNAME),app.tmp)
+
+build:
+	go build -o $(APPNAME) $(shell pwd)/main.go ;\
+	chmod +x $(APPNAME)
+
+build-test:
+	go build -o app.tp $(shell pwd)/main.go ;\
+	chmod +x app.tp 
+
+clean:
+	killall $(APPNAME)
+	rm -rf $(shell pwd)/$(APPNAME)
+
+run:
+	-@killall app.tmp 2>/dev/null
+#-@ >/dev/null 2>&1;
+	
+
+
+#@$(foreach var,$(LIST),\
+#	echo $(var); \
+#)
+# while read -r id key port; \
+# do \
+# echo $(id),$(key),$(port); \
+# done < $(var);\
+
+
+
