@@ -1,6 +1,8 @@
 package models
 
-import "pkg.deepin.com/golang/lib/uuid"
+import (
+	"a/uuid"
+)
 
 type Game struct {
 	ID   string

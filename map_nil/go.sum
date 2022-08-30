@@ -1,4 +1,2 @@
 github.com/google/uuid v1.1.1 h1:Gkbcsh/GbpXz7lPftLA3P6TYMwjCLYm83jiFQZF/3gY=
 github.com/google/uuid v1.1.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
-pkg.deepin.com/golang/lib/uuid v0.0.0-20210729055728-a6f3c0fc1f0b h1:aibYlsVTY+ukBCZHqRSuCbyaYp7wQvaefVdfKOhXWS0=
-pkg.deepin.com/golang/lib/uuid v0.0.0-20210729055728-a6f3c0fc1f0b/go.mod h1:OtM/oilUXySJuTGc6cCWvjvDVp6afRPf+kbmoaFKM1k=
